@@ -2012,14 +2012,11 @@ public class Reporter : MonoBehaviour
 
 		#if UNITY_CHANGE3
 			if (Application.platform != RuntimePlatform.OSXPlayer && Application.platform != RuntimePlatform.WindowsPlayer)
-			if (!url.Contains("://"))
-				url = "file://" + url;
 		#else
 			if (Application.platform != RuntimePlatform.OSXWebPlayer && Application.platform != RuntimePlatform.WindowsWebPlayer)
-			if (!url.Contains("://"))
-				url = "file://" + url;
 		#endif
-
+		if (!url.Contains("://"))
+			url = "file://" + url;
 
 		// float startTime = Time.realtimeSinceStartup;
 		WWW www = new WWW(url);
